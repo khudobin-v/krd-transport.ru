@@ -1,7 +1,9 @@
 "use client";
 
 import useProfile from "@/hooks/useProfile";
-import { AvatarFallback } from "@radix-ui/react-avatar";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -9,14 +11,12 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { CircleUser } from "lucide-react";
+} from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { Avatar, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
+import { CircleUser } from "lucide-react";
 
 const HeaderProfile = () => {
 	const { profile, status } = useProfile();
@@ -31,19 +31,25 @@ const HeaderProfile = () => {
 	if (status === "loading") {
 		return <Skeleton className="h-10 w-10 rounded-full" />;
 	}
-	if (status === "authenticated") {
+
+	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Avatar>
 					<AvatarFallback>
-						<CircleUser className="h-5 w-5" />
+						<CircleUser />
 					</AvatarFallback>
 					<AvatarImage>
-						<Image src={profile?.image!} height={20} width={20} alt="Фото профиля" />
+						<Image
+							src={profile.image!}
+							height={20}
+							width={20}
+							alt="Фото профиля"
+						/>
 					</AvatarImage>
 				</Avatar>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end">
+			<DropdownMenuContent align="end" className="mt-2.5">
 				<DropdownMenuLabel>👋 Привет, {profile?.name}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>Перейти в профиль</DropdownMenuItem>
@@ -53,9 +59,8 @@ const HeaderProfile = () => {
 					Выйти из аккаунта
 				</DropdownMenuItem>
 			</DropdownMenuContent>
-		</DropdownMenu>;
-	}
-	return <>Ошибка</>;
+		</DropdownMenu>
+	);
 };
 
 export default HeaderProfile;

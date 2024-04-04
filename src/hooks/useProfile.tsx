@@ -6,8 +6,8 @@ const useProfile = () => {
 	const session = useSession();
 	const profile = {
 		name: session.data?.user?.name,
-		email: session.data?.user?.name,
-		image: session.data?.user?.name,
+		email: session.data?.user?.email,
+		image: session.data?.user?.image,
 	};
 	const status = session.status;
 	return { profile, status };
