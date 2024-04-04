@@ -55,6 +55,7 @@ const HeaderProfile = () => {
 			</DropdownMenuContent>
 		</DropdownMenu>;
 	}
+	return <>Ошибка</>;
 };
 
 export default HeaderProfile;
