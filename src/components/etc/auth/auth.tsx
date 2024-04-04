@@ -37,7 +37,7 @@ const Auth = () => {
 							<Button
 								type="submit"
 								variant="primary"
-								onClick={() => signIn("email", { email, callbackUrl: "/" })}
+								onClick={() => signIn("email", { email })}
 								className="w-full"
 							>
 								<Link className="mr-2 h-4 w-4" /> Получить ссылку для входа
