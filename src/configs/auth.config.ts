@@ -1,8 +1,8 @@
 import type { AuthOptions } from "next-auth";
-import VkProvider from "next-auth/providers/vk";
+import Providers from "next-auth/providers";
 const authConfig: AuthOptions = {
 	providers: [
-		VkProvider({
+		Providers.VK({
 			clientId: process.env.VK_CLIENT_ID!,
 			clientSecret: process.env.VK_CLIENT_SECRET!,
 		}),
