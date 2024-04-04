@@ -36,9 +36,7 @@ const HeaderProfile = () => {
 			<DropdownMenuTrigger asChild>
 				<Avatar>
 					{profile.image ? (
-						<AvatarImage>
-							<img src={profile.image!} height={20} width={20} alt="" />
-						</AvatarImage>
+						<AvatarImage src={profile.image!}></AvatarImage>
 					) : (
 						<AvatarFallback>
 							<CircleUser />
