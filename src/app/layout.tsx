@@ -1,3 +1,5 @@
+"use client";
+
 import { Manrope as FontSans } from "next/font/google";
 import "./globals.css";
 

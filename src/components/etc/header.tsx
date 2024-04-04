@@ -1,3 +1,5 @@
+"use client";
+
 import { CircleUser, Menu } from "lucide-react";
 import Link from "next/link";
 
@@ -13,7 +15,8 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
 import { ThemeToggle } from "../ui/theme-toggle";
-import { useSession } from 'next-auth/react'
+import { useSession } from "next-auth/react";
+import HeaderProfile from "./header-profile";
 
 const Header = () => {
 	const session = useSession();
@@ -85,21 +88,7 @@ const Header = () => {
 			<div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
 				<div className="ml-auto flex-1 sm:flex-initial"></div>
 				<ThemeToggle />
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant="secondary" size="icon" className="rounded-full">
-							<CircleUser className="h-5 w-5" />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end">
-						<DropdownMenuLabel>My Account</DropdownMenuLabel>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem>Settings</DropdownMenuItem>
-						<DropdownMenuItem>Support</DropdownMenuItem>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem>Logout</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
+				<HeaderProfile />
 			</div>
 		</header>
 	);

@@ -1,3 +1,5 @@
+"use client";
+
 import useProfile from "@/hooks/useProfile";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import {
@@ -16,7 +18,7 @@ import { Avatar, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
 
-const Profile = () => {
+const HeaderProfile = () => {
 	const { name, email, image, status } = useProfile();
 
 	if (status === "unauthenticated") {
@@ -54,3 +56,5 @@ const Profile = () => {
 		</DropdownMenu>;
 	}
 };
+
+export default HeaderProfile;
