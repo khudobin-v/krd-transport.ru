@@ -3,7 +3,7 @@
 import { Manrope as FontSans } from "next/font/google";
 import "./globals.css";
 
-import Header from "@/components/etc/header";
+import Header from "@/components/etc/header/header";
 import { ThemeProvider } from "@/components/etc/theme-provider";
 import { cn } from "@/lib/utils";
 import { SessionProvider } from "next-auth/react";

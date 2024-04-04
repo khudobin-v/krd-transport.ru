@@ -1,21 +1,13 @@
 "use client";
 
-import { CircleUser, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Image from "next/image";
-import { ThemeToggle } from "../ui/theme-toggle";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { ThemeToggle } from "../../ui/theme-toggle";
 import HeaderProfile from "./header-profile";
 
 const Header = () => {

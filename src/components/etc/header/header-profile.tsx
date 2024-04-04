@@ -15,7 +15,7 @@ import {
 import { CircleUser } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { Skeleton } from "../ui/skeleton";
+import { Skeleton } from "../../ui/skeleton";
 
 const HeaderProfile = () => {
 	const { profile, status } = useProfile();
@@ -23,7 +23,7 @@ const HeaderProfile = () => {
 	if (status === "unauthenticated") {
 		return (
 			<Link href="/api/auth/signin">
-				<Button>Войти</Button>
+				<Button variant="primary">Войти</Button>
 			</Link>
 		);
 	}

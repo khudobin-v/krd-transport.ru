@@ -13,6 +13,9 @@ const authConfig: AuthOptions = {
 			clientSecret: process.env.YANDEX_CLIENT_SECRET!,
 		}),
 	],
+	pages: {
+		signIn: "/auth",
+	},
 };
 
 export default authConfig;
