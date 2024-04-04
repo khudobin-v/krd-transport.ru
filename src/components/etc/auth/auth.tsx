@@ -1,13 +1,17 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Suspense } from "react";
+import { Link } from "lucide-react";
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
 import AuthWithVK from "./auth-with-vk";
 import AuthWithYandex from "./auth-with-yandex";
 
 const Auth = () => {
+	const searchParams = useSearchParams();
+	const callbackUrl = searchParams.get("callbackUrl") || "/profile";
+	const [email, setEmail] = useState<string>("");
 	return (
 		<Suspense>
 			<div className="w-full">
@@ -28,11 +32,18 @@ const Auth = () => {
 									type="email"
 									placeholder="example@krd-transport.ru"
 									required
+									value={email}
+									onChange={e => setEmail(e.target.value)}
 								/>
 							</div>
 
-							<Button type="submit" variant="primary" className="w-full">
-								Получить ссылку для входа
+							<Button
+								type="submit"
+								variant="primary"
+								onClick={() => signIn("email", { email, callbackUrl })}
+								className="w-full"
+							>
+								<Link className="mr-2 h-4 w-4" /> Получить ссылку для входа
 							</Button>
 							<p className="text-muted-foreground text-center text-sm">
 								Или с использованием:

@@ -8,10 +8,10 @@ const AuthWithYandex = () => {
 	const callbackUrl = searchParams.get("callbackUrl") || "/profile";
 	return (
 		<Button
-			onClick={() => signIn("yandex", { callbackUrl })}
+			onClick={() => signIn("yandex", { callbackUrl: "/" })}
 			variant="login_yandex"
 		>
-			<img src="./yandex.png" className="mr-2 h-4 w-4" />
+			<img src="./yandex.png" className="mr-2 h-4 w-4" draggable={false} />
 			Войти с Яндекс ID
 		</Button>
 	);

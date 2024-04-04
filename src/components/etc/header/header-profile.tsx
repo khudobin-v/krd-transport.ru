@@ -12,7 +12,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { CircleUser } from "lucide-react";
+import { CircleUser, LogIn } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { Skeleton } from "../../ui/skeleton";
@@ -23,7 +23,10 @@ const HeaderProfile = () => {
 	if (status === "unauthenticated") {
 		return (
 			<Link href="/api/auth/signin">
-				<Button variant="primary">Войти</Button>
+				<Button variant="primary">
+					{" "}
+					<LogIn className="mr-2 h-4 w-4" /> Войти
+				</Button>
 			</Link>
 		);
 	}
@@ -45,7 +48,13 @@ const HeaderProfile = () => {
 				</Avatar>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end" className="mt-2.5">
-				<DropdownMenuLabel>👋 Привет, {profile?.name}</DropdownMenuLabel>
+				<DropdownMenuLabel>
+					{profile.name ? (
+						<span>👋 Привет, {profile?.name}</span>
+					) : (
+						<span>{profile.email}</span>
+					)}
+				</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>Перейти в профиль</DropdownMenuItem>
 				<DropdownMenuItem>Избранные маршруты</DropdownMenuItem>

@@ -16,7 +16,7 @@ const Header = () => {
 		<header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
 			<nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
 				<Link
-					href="#"
+					href="/"
 					className="text-xl transition-colors hover:text-orange-600 text-balance w-max font-bold text-orange-500 flex items-center gap-2"
 				>
 					<Image
@@ -38,7 +38,7 @@ const Header = () => {
 				<SheetContent side="left">
 					<nav className="grid gap-6 text-lg font-medium">
 						<Link
-							href="#"
+							href="/"
 							className="text-foreground transition-colors hover:text-orange-600 w-1/2 text-balance font-bold text-orange-500 flex items-center gap-3"
 						>
 							<Image
