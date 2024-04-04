@@ -47,13 +47,13 @@ const Header = () => {
 					<nav className="grid gap-6 text-lg font-medium">
 						<Link
 							href="#"
-							className="text-foreground transition-colors hover:text-orange-600 text-balance w-max font-bold text-orange-500 flex items-center gap-2"
+							className="text-foreground transition-colors hover:text-orange-600 w-1/2 text-balance font-bold text-orange-500 flex items-center gap-3"
 						>
 							<Image
 								src="./krd-transport.svg"
 								className="hover:fill-orange-600"
-								height={20}
-								width={20}
+								height={30}
+								width={30}
 								alt="Логотип"
 							/>
 							Краснодарский транспорт
