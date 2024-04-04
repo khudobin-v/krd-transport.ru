@@ -2,8 +2,9 @@ import { Manrope as FontSans } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/etc/header";
+import { ThemeProvider } from "@/components/etc/theme-provider";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider";
+import { SessionProvider } from "next-auth/react";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -24,15 +25,17 @@ export default function RootLayout({
 					fontSans.variable
 				)}
 			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<Header />
-					{children}
-				</ThemeProvider>
+				<SessionProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<Header />
+						{children}
+					</ThemeProvider>
+				</SessionProvider>
 			</body>
 		</html>
 	);
