@@ -12,11 +12,10 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { CircleUser } from "lucide-react";
 import { signOut } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
 import { Skeleton } from "../ui/skeleton";
-import { CircleUser } from "lucide-react";
 
 const HeaderProfile = () => {
 	const { profile, status } = useProfile();
@@ -36,17 +35,15 @@ const HeaderProfile = () => {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Avatar>
-					<AvatarFallback>
-						<CircleUser />
-					</AvatarFallback>
-					<AvatarImage>
-						<Image
-							src={profile.image!}
-							height={20}
-							width={20}
-							alt="Фото профиля"
-						/>
-					</AvatarImage>
+					{profile.image ? (
+						<AvatarImage>
+							<img src={profile.image!} height={20} width={20} alt="" />
+						</AvatarImage>
+					) : (
+						<AvatarFallback>
+							<CircleUser />
+						</AvatarFallback>
+					)}
 				</Avatar>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end" className="mt-2.5">
