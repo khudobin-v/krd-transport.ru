@@ -16,7 +16,7 @@ export const Socials = () => {
         Войти с Яндекс
       </Button>
       <Button
-        className="bg-[#0077ff] hover:bg-[#005fcc] text-white font-semibold text-sm sm:text-base"
+        className="bg-[#0077ff] hover:bg-[#005fcc] text-white font-semibold text-xs sm:text-base"
         onClick={() => {}}
       >
         <img
