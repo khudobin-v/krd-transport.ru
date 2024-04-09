@@ -3,7 +3,7 @@
 import { useProfile } from "@/hooks/useProfile";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { CircleUser, LogIn } from "lucide-react";
+import { CircleUser, LogIn, LogOut, Settings, Star } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -26,8 +26,8 @@ export const MiniProfile = () => {
     <>
       {status === "unauthenticated" && (
         <Link href="/auth/login">
-          <Button>
-            <LogIn className="h-5 w-5 mr-2" />
+          <Button className="text-xs sm:text-base">
+            <LogIn className="h-5 w-5 mr-2 sm:h-4 sm:w-4" />
             Войти
           </Button>
         </Link>
@@ -47,13 +47,14 @@ export const MiniProfile = () => {
                       
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>Профиль</DropdownMenuItem>
+              <DropdownMenuItem  className="focus-visible:text-primary cursor-pointer"><CircleUser className="h-3 w-3 mr-2"/>Профиль</DropdownMenuItem>
+              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer"><Star className="h-3 w-3 mr-2"/>Избранные маршруты</DropdownMenuItem>
 
-              <DropdownMenuItem>Настройки</DropdownMenuItem>
+              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer"><Settings className="h-3 w-3 mr-2"/>Настройки</DropdownMenuItem>
             </DropdownMenuGroup>
 
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => signOut()}>Выйти</DropdownMenuItem>
+            <DropdownMenuItem  className="focus-visible:text-red-500 cursor-pointer" onClick={() => signOut({callbackUrl: "/"})}><LogOut className="h-3 w-3 mr-2"/>Выйти</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
           )}
