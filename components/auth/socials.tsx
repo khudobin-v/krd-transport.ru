@@ -4,7 +4,7 @@ export const Socials = () => {
   return (
     <div className="grid grid-cols-2 gap-3">
       <Button
-        className="bg-[#fc3f1d] hover:bg-[#c93217] text-white font-semibold text-sm sm:text-base"
+        className="bg-[#fc3f1d] hover:bg-[#c93217] text-white font-semibold text-xs sm:text-base"
         onClick={() => {}}
       >
         <img
