@@ -4,16 +4,14 @@ import React from "react"
 import { ThemeToggler } from "@/components/theme-toggler";
 import Link from "next/link";
 import { MiniProfile } from "./profile/mini-profile";
-import Tram from "@/assets/transport/tram.svg"
-import {HandySvg} from 'handy-svg';
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { Menu, Package2 } from "lucide-react";
+import { Menu } from "lucide-react";
 
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 flex items-center justify-between h-16 border-b px-4 bg-background">
+    <header className="top-0 flex items-center justify-between h-16 border-b px-4 bg-background">
       <div className="flex items-center gap-3">
         <Sheet>
           <SheetTrigger asChild>
@@ -38,15 +36,15 @@ export const Header = () => {
           Краснодарский транспорт
         </h2>
         </Link>
-        <Link href="/tram" className="text-red-600 items-center gap-2 font-semibold flex">
+        <Link href="/transport/tram" className="text-red-600 items-center gap-2 font-semibold flex">
           <img src="/transport/tram.svg" className="h-5 w-5" alt="" />
           Трамвай
         </Link>
-        <Link href="/tram" className="text-blue-600 items-center gap-2 font-semibold flex">
+        <Link href="/transport/trolleybus" className="text-blue-600 items-center gap-2 font-semibold flex">
           <img src="/transport/trolleybus.svg" className="h-5 w-5" alt="" />
           Троллейбус
         </Link>
-        <Link href="/tram" className="text-green-600 items-center gap-2 font-semibold flex">
+        <Link href="/transport/bus" className="text-green-600 items-center gap-2 font-semibold flex">
           <img src="/transport/bus.svg" className="h-5 w-5" alt="" />
           Автобус
         </Link>
