@@ -10,7 +10,7 @@ export const Socials = () => {
         <img
           src="/yandex.png"
           alt="Войти с Яндекс"
-          className="mr-3 h-4 w-4 sm:mr-2 sm:h-3 sm:w-3"
+                    className="mr-2 h-3 w-3 sm:mr-3 sm:h-4 sm:w-4"
           draggable={false}
         />{" "}
         Войти с Яндекс
@@ -22,7 +22,7 @@ export const Socials = () => {
         <img
           src="/vk.png"
           alt="Войти с ВКонтакте"
-          className="mr-3 h-4 w-4 sm:mr-2 sm:h-3 sm:w-3"
+          className="mr-2 h-3 w-3 sm:mr-3 sm:h-4 sm:w-4"
           draggable={false}
         />{" "}
         Войти с ВКонтакте

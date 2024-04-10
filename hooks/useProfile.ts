@@ -9,6 +9,7 @@ export const useProfile = () => {
   const userName = session.data?.user?.name;
   const userEmail = session.data?.user?.email;
   const userImage = session.data?.user?.image;
+  const userRole = session.data?.user?.role
 
-  return { status, userId, userName, userEmail, userImage };
+  return { status, userId, userName, userEmail, userImage, userRole };
 };

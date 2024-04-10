@@ -1,5 +1,10 @@
+"use client"
+
+import { useProfile } from "@/hooks/useProfile";
+
 const ProfilePage = () => {
-  return <>Страница профиля пользователя</>;
+  const { userRole } = useProfile();
+  return <>Страница профиля пользователя, {userRole}</>;
 };
 
 export default ProfilePage;

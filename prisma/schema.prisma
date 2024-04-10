@@ -17,10 +17,16 @@ model User {
   id            String    @id @default(cuid())
   name       String?
   email         String?   @unique
-  emailVerified DateTime?
   password      String?
+  role  Role @default(user)
+  emailVerified DateTime?
   image         String?
   accounts      Account[]
+}
+
+enum Role {
+  admin
+  user
 }
 
 model Account {
