@@ -1,25 +1,24 @@
-"use client";
+"use server";
 
+import { auth } from "@/auth";
 import { RouteNumber } from "@/components/transport/route-number";
 import {
   Table,
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getRoutesByType } from "@/data/routes";
+
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
-const BusPage = () => {
-  const [isClient, setIsClient] = useState(false);
+const BusPage = async () => {
+  const routes = await getRoutesByType("bus");
+  const session = await auth();
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
   return (
     <>
       <title>Автобусные маршруты</title>
@@ -28,30 +27,41 @@ const BusPage = () => {
         <h1 className="text-3xl text-green-600 font-bold">
           Автобусные маршруты
         </h1>
+        <h1>{JSON.stringify(session)}</h1>
       </div>
-      <div>
-        <Table>
-          <TableCaption>Список всех автобусных маршрутов</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-12">№</TableHead>
-              <TableHead>Имя маршрута</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
+
+      <Table>
+        <TableCaption>Список всех автобусных маршрутов</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-12">№</TableHead>
+            <TableHead>Имя маршрута</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {routes?.map((route) => (
+            <TableRow key={route.id}>
               <TableCell>
                 <Link href="/">
-                  <RouteNumber number="1" variant="green" />
+                  <RouteNumber
+                    number={route.number}
+                    variant={
+                      route.type === "bus"
+                        ? "green"
+                        : route.type === "tram"
+                          ? "red"
+                          : "blue"
+                    }
+                  />
                 </Link>
               </TableCell>
               <TableCell className="font-semibold">
-                <Link href="/">улица Центральная — улица Колхозная</Link>
+                <Link href="/">{route.name}</Link>
               </TableCell>
             </TableRow>
-          </TableBody>
-        </Table>
-      </div>
+          ))}
+        </TableBody>
+      </Table>
     </>
   );
 };

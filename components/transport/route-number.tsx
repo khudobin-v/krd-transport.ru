@@ -23,9 +23,6 @@ export const RouteNumber = ({ number, variant }: RouteNumberProps) => {
           <p className="text-white font-semibold text-sm">{number}</p>
         </div>
       )}
-      <div className="rounded-[30%] px-3 py-3 w-6 h-6 flex items-center justify-center">
-        <p className="text-white font-semibold text-sm">{number}</p>
-      </div>
     </>
   );
 };

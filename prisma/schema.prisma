@@ -22,6 +22,7 @@ model User {
   emailVerified DateTime?
   image         String?
   accounts      Account[]
+   routes        UserRoute[]
 }
 
 enum Role {
@@ -46,4 +47,29 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+
+model Route {
+  id String @id @default(cuid())
+  type RouteType 
+  number String
+  name String
+  href String
+  users   UserRoute[] 
+}
+
+enum RouteType {
+  tram
+  trolleybus
+  bus
+}
+
+model UserRoute {
+  userId  String
+  routeId String
+  user    User   @relation(fields: [userId], references: [id])
+  route   Route  @relation(fields: [routeId], references: [id])
+
+  @@id([userId, routeId])
 }
