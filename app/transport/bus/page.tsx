@@ -42,7 +42,7 @@ const BusPage = () => {
             <TableRow>
               <TableCell>
                 <Link href="/">
-                  <RouteNumber number="1" color="green" />
+                  <RouteNumber number="1" variant="green" />
                 </Link>
               </TableCell>
               <TableCell className="font-semibold">
