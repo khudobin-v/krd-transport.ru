@@ -23,8 +23,6 @@ import { useSearchParams } from "next/navigation";
 export const MiniProfile = () => {
   const { status, userName, userEmail, userImage } = useProfile();
 
-  const urlParams = useSearchParams();
-  const callbackUrl = urlParams || "/"
 
   return (
     <>
