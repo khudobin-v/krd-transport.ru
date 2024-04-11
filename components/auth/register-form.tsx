@@ -67,7 +67,9 @@ export const RegisterForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Имя</FormLabel>
+                  <FormLabel className="select-none" draggable={false}>
+                    Имя
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="Василий" {...field} />
                   </FormControl>
@@ -80,7 +82,9 @@ export const RegisterForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Адрес электронной почты</FormLabel>
+                  <FormLabel className="select-none" draggable={false}>
+                    Адрес электронной почты
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="example@krd-transport.ru"
@@ -97,7 +101,9 @@ export const RegisterForm = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Пароль</FormLabel>
+                  <FormLabel className="select-none" draggable={false}>
+                    Пароль
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="********" type="password" {...field} />
                   </FormControl>
@@ -110,7 +116,9 @@ export const RegisterForm = () => {
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Подтвердите пароль</FormLabel>
+                  <FormLabel className="select-none" draggable={false}>
+                    Подтвердите пароль
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="********" type="password" {...field} />
                   </FormControl>

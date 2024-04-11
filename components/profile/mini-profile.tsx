@@ -27,7 +27,7 @@ export const MiniProfile = () => {
     <>
       {status === "unauthenticated" && (
         <Link href="/auth/login">
-          <Button className="text-xs sm:text-base">
+          <Button className="text-xs">
             <LogIn className="h-5 w-5 mr-2 sm:h-4 sm:w-4" />
             Войти
           </Button>

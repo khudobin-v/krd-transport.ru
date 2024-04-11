@@ -65,7 +65,9 @@ export const LoginForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Адрес электронной почты</FormLabel>
+                  <FormLabel className="select-none" draggable={false}>
+                    Адрес электронной почты
+                  </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -82,7 +84,9 @@ export const LoginForm = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Пароль</FormLabel>
+                  <FormLabel className="select-none" draggable={false}>
+                    Пароль
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="********" type="password" />
                   </FormControl>
