@@ -5,10 +5,6 @@ import { getUserByEmail } from "./data/user";
 import bcrypt from "bcryptjs";
 
 const nextAuthConfig: NextAuthConfig = {
-  trustHost: true,
-  pages: {
-    signOut: "/"
-  }
   providers: [
     Credentials({
       async authorize(credentials) {
@@ -28,6 +24,10 @@ const nextAuthConfig: NextAuthConfig = {
       },
     }),
   ],
+  trustHost: true,
+  pages: {
+    signOut: "/",
+  },
 };
 
 export default nextAuthConfig;
