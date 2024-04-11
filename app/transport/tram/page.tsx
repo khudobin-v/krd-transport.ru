@@ -1,5 +1,12 @@
+"use client";
+
 const TramPage = () => {
-    return <>Трамваи</>
-}
+  return (
+    <>
+      <title>Трамвайные маршруты</title>
+      Трамваи
+    </>
+  );
+};
 
 export default TramPage;

@@ -1,5 +1,12 @@
+"use client";
+
 const TrolleybusPage = () => {
-   return <>Троллейбусы</>
-}
+  return (
+    <>
+      <title>Троллейбусные маршруты</title>
+      Троллейбусы
+    </>
+  );
+};
 
 export default TrolleybusPage;

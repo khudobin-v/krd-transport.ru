@@ -1,5 +1,12 @@
+"use client";
+
 const BusPage = () => {
-   return <>Автобусы</>
-}
+  return (
+    <>
+      <title>Автобусные маршруты</title>
+      Автобусы
+    </>
+  );
+};
 
 export default BusPage;
