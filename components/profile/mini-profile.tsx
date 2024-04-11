@@ -18,11 +18,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useSearchParams } from "next/navigation";
+import { NextURL } from "next/dist/server/web/next-url";
+import { NextRequest } from "next/server";
 
 export const MiniProfile = () => {
   const { status, userName, userEmail, userImage } = useProfile();
-
 
   return (
     <>
@@ -46,22 +46,38 @@ export const MiniProfile = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56" align="end">
             <DropdownMenuLabel>Привет, {userName}!</DropdownMenuLabel>
-                      
+
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem  className="focus-visible:text-primary cursor-pointer"><CircleUser className="h-3 w-3 mr-2"/>Профиль</DropdownMenuItem>
-              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer"><Star className="h-3 w-3 mr-2"/>Избранные маршруты</DropdownMenuItem>
+              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
+                <CircleUser className="h-3 w-3 mr-2" />
+                Профиль
+              </DropdownMenuItem>
+              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
+                <Star className="h-3 w-3 mr-2" />
+                Избранные маршруты
+              </DropdownMenuItem>
 
-              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer"><Settings className="h-3 w-3 mr-2"/>Настройки</DropdownMenuItem>
+              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
+                <Settings className="h-3 w-3 mr-2" />
+                Настройки
+              </DropdownMenuItem>
             </DropdownMenuGroup>
 
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="focus-visible:text-red-500 cursor-pointer" onClick={() => signOut({ callbackUrl: "/auth/login" })}><LogOut className="h-3 w-3 mr-2"/>Выйти</DropdownMenuItem>
+            <DropdownMenuItem
+              className="focus-visible:text-red-500 cursor-pointer"
+              onClick={() =>
+                signOut({ callbackUrl: "https://krd-transport.ru/auth/login" })
+              }
+            >
+              <LogOut className="h-3 w-3 mr-2" />
+              Выйти
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-          )}
-          { status === "loading" &&  <Skeleton className="w-9 h-9 rounded-full" />}
-
+      )}
+      {status === "loading" && <Skeleton className="w-9 h-9 rounded-full" />}
     </>
   );
 };
