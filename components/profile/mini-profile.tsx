@@ -18,9 +18,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useSearchParams } from "next/navigation";
 
 export const MiniProfile = () => {
   const { status, userName, userEmail, userImage } = useProfile();
+
+  const urlParams = useSearchParams();
+  const callbackUrl = urlParams || "/"
 
   return (
     <>
@@ -54,7 +58,7 @@ export const MiniProfile = () => {
             </DropdownMenuGroup>
 
             <DropdownMenuSeparator />
-            <DropdownMenuItem  className="focus-visible:text-red-500 cursor-pointer" onClick={() => signOut({callbackUrl: "/"})}><LogOut className="h-3 w-3 mr-2"/>Выйти</DropdownMenuItem>
+            <DropdownMenuItem className="focus-visible:text-red-500 cursor-pointer" onClick={() => signOut({ callbackUrl: "/auth/login" })}><LogOut className="h-3 w-3 mr-2"/>Выйти</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
           )}
