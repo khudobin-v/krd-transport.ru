@@ -4,7 +4,11 @@ import { LoginSchema } from "./schemas";
 import { getUserByEmail } from "./data/user";
 import bcrypt from "bcryptjs";
 
-const nextAyhthConfig: NextAuthConfig = {
+const nextAuthConfig: NextAuthConfig = {
+  trustHost: true,
+  pages: {
+    signOut: "/"
+  }
   providers: [
     Credentials({
       async authorize(credentials) {
@@ -26,4 +30,4 @@ const nextAyhthConfig: NextAuthConfig = {
   ],
 };
 
-export default nextAyhthConfig;
+export default nextAuthConfig;
