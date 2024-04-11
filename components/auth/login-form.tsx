@@ -21,6 +21,7 @@ import * as z from "zod";
 import { LoginSchema } from "@/schemas";
 import { login } from "@/actions/login";
 import { Loader } from "@/components/loader";
+import { useToast } from "../ui/use-toast";
 
 export const LoginForm = () => {
   const form = useForm({
@@ -36,6 +37,8 @@ export const LoginForm = () => {
 
   const [isPending, startTransition] = useTransition();
 
+  const { toast } = useToast();
+
   const loginSubmit = (values: z.infer<typeof LoginSchema>) => {
     setError("");
     setSuccess("");
@@ -44,6 +47,9 @@ export const LoginForm = () => {
       login(values).then((data) => {
         setError(data?.error);
         setSuccess(data?.success);
+        toast({
+          title: "Вы успешно вошли в аккаунт",
+        });
       });
     });
   };

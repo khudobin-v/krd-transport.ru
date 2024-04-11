@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Header } from "@/components/header";
 import { SessionProvider } from "next-auth/react";
+import { Toaster } from "@/components/ui/toaster";
 
 const manropeFont = ManropeFont({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           <SessionProvider>
             <Header />
             <div className="h-[95vh] p-4">{children}</div>
+            <Toaster />
           </SessionProvider>
         </ThemeProvider>
       </body>
