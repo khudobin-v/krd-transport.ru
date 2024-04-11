@@ -18,8 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "next-auth/react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { NextURL } from "next/dist/server/web/next-url";
-import { NextRequest } from "next/server";
+
 
 export const MiniProfile = () => {
   const { status, userName, userEmail, userImage } = useProfile();
@@ -67,9 +66,7 @@ export const MiniProfile = () => {
             <DropdownMenuSeparator />
             <DropdownMenuItem
               className="focus-visible:text-red-500 cursor-pointer"
-              onClick={() =>
-                signOut({ callbackUrl: "https://krd-transport.ru/auth/login" })
-              }
+              onClick={() => signOut({})}
             >
               <LogOut className="h-3 w-3 mr-2" />
               Выйти
