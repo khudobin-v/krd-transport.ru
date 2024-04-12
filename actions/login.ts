@@ -24,6 +24,8 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
       switch (error.type) {
         case "CredentialsSignin":
           return { error: "Неправильные логин и/или пароль!" };
+        case "AccessDenied":
+          return {error: "Доступ запрещен, Вы не подтвериди адрес электронной почты"}
         default:
           return { error: "Что-то пошло не так... Попробуйте позже" };
       }

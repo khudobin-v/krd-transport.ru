@@ -4,12 +4,12 @@ import { AuthFormWrapper } from "@/components/auth/auth-form-wrapper";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+	Form,
+	FormControl,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -24,95 +24,95 @@ import { Loader } from "@/components/loader";
 import { useToast } from "../ui/use-toast";
 
 export const LoginForm = () => {
-  const form = useForm({
-    resolver: zodResolver(LoginSchema),
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
+	const form = useForm({
+		resolver: zodResolver(LoginSchema),
+		defaultValues: {
+			email: "",
+			password: "",
+		},
+	});
 
-  const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
+	const [error, setError] = useState<string | undefined>("");
+	const [success, setSuccess] = useState<string | undefined>("");
 
-  const [isPending, startTransition] = useTransition();
+	const [isPending, startTransition] = useTransition();
 
-  const { toast } = useToast();
+	const { toast } = useToast();
 
-  const loginSubmit = (values: z.infer<typeof LoginSchema>) => {
-    setError("");
-    setSuccess("");
+	const loginSubmit = (values: z.infer<typeof LoginSchema>) => {
+		setError("");
+		setSuccess("");
 
-    startTransition(() => {
-      login(values).then((data) => {
-        setError(data?.error);
-        setSuccess(data?.success);
-        toast({
-          title: "Вы успешно вошли в аккаунт",
-        });
-      });
-    });
-  };
+		startTransition(() => {
+			login(values).then(data => {
+				setError(data?.error);
+				setSuccess(data?.success);
+				toast({
+					title: data?.error,
+				});
+			});
+		});
+	};
 
-  return (
-    <AuthFormWrapper
-      headerLabel="Вход в аккаунт"
-      backButtonLabel="Ещё нет аккаунта? Создайте!"
-      backButtonHref="/auth/register"
-      showSocialButtons
-    >
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(loginSubmit)}>
-          <FormError message={error} />
-          <FormSuccess message={success} />
-          <div className="space-y-2">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="select-none" draggable={false}>
-                    Адрес электронной почты
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      {...field}
-                      placeholder="example@krd-transport.ru"
-                      type="email"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="select-none" draggable={false}>
-                    Пароль
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} placeholder="********" type="password" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button className="w-full" type="submit">
-              {isPending ? (
-                <Loader />
-              ) : (
-                <>
-                  <LogIn className="h-4 w-4 mr-2" />
-                  Войти
-                </>
-              )}
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </AuthFormWrapper>
-  );
+	return (
+		<AuthFormWrapper
+			headerLabel='Вход в аккаунт'
+			backButtonLabel='Ещё нет аккаунта? Создайте!'
+			backButtonHref='/auth/register'
+			showSocialButtons
+		>
+			<Form {...form}>
+				<form onSubmit={form.handleSubmit(loginSubmit)}>
+					<FormError message={error} />
+					<FormSuccess message={success} />
+					<div className='space-y-2'>
+						<FormField
+							control={form.control}
+							name='email'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className='select-none' draggable={false}>
+										Адрес электронной почты
+									</FormLabel>
+									<FormControl>
+										<Input
+											{...field}
+											placeholder='example@krd-transport.ru'
+											type='email'
+										/>
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<FormField
+							control={form.control}
+							name='password'
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className='select-none' draggable={false}>
+										Пароль
+									</FormLabel>
+									<FormControl>
+										<Input {...field} placeholder='********' type='password' />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
+						<Button className='w-full' type='submit'>
+							{isPending ? (
+								<Loader />
+							) : (
+								<>
+									<LogIn className='h-4 w-4 mr-2' />
+									Войти
+								</>
+							)}
+						</Button>
+					</div>
+				</form>
+			</Form>
+		</AuthFormWrapper>
+	);
 };

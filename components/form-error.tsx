@@ -8,7 +8,7 @@ interface FormErrorProps {
 export const FormError = ({ message }: FormErrorProps) => {
   if (!message) return null;
   return (
-    <Card className="bg-destructive/40 p-2 border-destructive mb-2 max-w-full">
+    <Card className="bg-destructive/40 p-2 border-destructive mb-2 max-w-[450px]">
       <span className="flex items-center gap-2  text-red-600 font-medium text-sm">
         <CircleAlert className="h-5 w-5" />
         <p>{message}</p>

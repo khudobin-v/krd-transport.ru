@@ -4,36 +4,44 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth, { DefaultSession } from "next-auth";
 import { getUserById } from "./data/user";
 import { UserRole } from "@prisma/client";
+import { execSync } from "child_process";
 
 export const {
-  handlers: { GET, POST },
-  auth,
-  signIn,
-  signOut,
+	handlers: { GET, POST },
+	auth,
+	signIn,
+	signOut,
 } = NextAuth({
-  callbacks: {
-    async session({ token, session }) {
-      if (token.role && session.user) {
-        session.user.role = token.role as UserRole;
-      }
-      return session;
-    },
+	callbacks: {
+		// async signIn({ user }) {
+		// 	const existingUser = await getUserById(user.id);
+		// 	if (!existingUser || !existingUser.emailVerified) return false;
 
-    async jwt({ token }) {
-      if (!token.sub) return token;
+		// 	return true;
+		// },
 
-      const existingUser = await getUserById(token.sub);
+		async session({ token, session }) {
+			if (token.role && session.user) {
+				session.user.role = token.role as UserRole;
+			}
+			return session;
+		},
 
-      if (!existingUser) return token;
+		async jwt({ token }) {
+			if (!token.sub) return token;
 
-      token.role = existingUser.role;
+			const existingUser = await getUserById(token.sub);
 
-      return token;
-    },
-  },
-  adapter: PrismaAdapter(db),
-  session: {
-    strategy: "jwt",
-  },
-  ...authConfig,
+			if (!existingUser) return token;
+
+			token.role = existingUser.role;
+
+			return token;
+		},
+	},
+	adapter: PrismaAdapter(db),
+	session: {
+		strategy: "jwt",
+	},
+	...authConfig,
 });

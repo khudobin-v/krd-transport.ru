@@ -34,7 +34,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         >
           <SessionProvider>
             <Header />
-            <div className="h-[95vh] p-4">{children}</div>
+            <div className="p-4" style={{height: "calc(100vh - 64px)"}}>{children}</div>
             <Toaster />
           </SessionProvider>
         </ThemeProvider>

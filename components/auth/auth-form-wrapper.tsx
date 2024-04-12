@@ -24,7 +24,7 @@ export const AuthFormWrapper = ({
   showSocialButtons,
 }: AuthFormWrapperProps) => {
   return (
-    <Card>
+    <Card className="w-[450px]">
       <CardHeader>
         <Header label={headerLabel} />
       </CardHeader>
