@@ -9,7 +9,7 @@ export const Socials = () => {
 	return (
 		<div className='w-full'>
 			<Button
-				className='bg-[#fc3f1d] hover:bg-[#c93217] text-white font-semibold text-xs w-full'
+				className='bg-[#fc3f1d] hover:bg-[#c93217] text-white font-semibold text-xs sm:text-sm w-full'
 				onClick={() => {
 					signInWithSocials("yandex");
 				}}
