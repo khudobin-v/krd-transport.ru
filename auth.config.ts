@@ -25,11 +25,14 @@ const nextAuthConfig: NextAuthConfig = {
 				return null;
 			},
 		}),
-		Vk,
+		Vk({
+			clientId: process.env.VK_CLIENT_ID,
+			clientSecret: process.env.VK_CLIENT_SECRET,
+		}),
 		Yandex({
-      clientId: process.env.YANDEX_CLIENT_ID,
-      clientSecret: process.env.YANDEX_CLIENT_SECRET,
-    }),
+			clientId: process.env.YANDEX_CLIENT_ID,
+			clientSecret: process.env.YANDEX_CLIENT_SECRET,
+		}),
 	],
 	trustHost: true,
 	pages: {
