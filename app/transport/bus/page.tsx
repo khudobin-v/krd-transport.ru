@@ -39,7 +39,7 @@ const BusPage = async () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {routes?.map((route) => (
+          {routes?.map((route: any) => (
             <TableRow key={route.id}>
               <TableCell>
                 <Link href="/">
