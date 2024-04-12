@@ -1,10 +1,11 @@
 import { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import Vk from "next-auth/providers/vk";
+import VK from "next-auth/providers/vk";
 import Yandex from "next-auth/providers/yandex";
 import { LoginSchema } from "./schemas";
 import { getUserByEmail } from "./data/user";
 import bcrypt from "bcryptjs";
+import { Mail } from "lucide-react";
 
 const nextAuthConfig: NextAuthConfig = {
 	providers: [
@@ -25,14 +26,7 @@ const nextAuthConfig: NextAuthConfig = {
 				return null;
 			},
 		}),
-		Vk({
-			clientId: process.env.VK_CLIENT_ID,
-			clientSecret: process.env.VK_CLIENT_SECRET,
-		}),
-		Yandex({
-			clientId: process.env.YANDEX_CLIENT_ID,
-			clientSecret: process.env.YANDEX_CLIENT_SECRET,
-		}),
+		VK,
 	],
 	trustHost: true,
 	pages: {
