@@ -1,11 +1,10 @@
 import { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import VK from "next-auth/providers/vk";
 import Yandex from "next-auth/providers/yandex";
 import { LoginSchema } from "./schemas";
 import { getUserByEmail } from "./data/user";
 import bcrypt from "bcryptjs";
-import { Mail } from "lucide-react";
+
 
 const nextAuthConfig: NextAuthConfig = {
 	providers: [
@@ -26,7 +25,7 @@ const nextAuthConfig: NextAuthConfig = {
 				return null;
 			},
 		}),
-		VK,
+		Yandex,
 	],
 	trustHost: true,
 	pages: {
