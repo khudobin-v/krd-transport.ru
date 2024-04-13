@@ -12,11 +12,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getRoutesByType } from "@/data/routes";
+import { Star } from "lucide-react";
 
 import Link from "next/link";
 
 const TramPage = async () => {
   const routes = await getRoutesByType("tram");
+  const session = await auth();
 
   return (
     <>
@@ -35,6 +37,7 @@ const TramPage = async () => {
             <TableRow>
               <TableHead className="w-12">№</TableHead>
               <TableHead>Имя маршрута</TableHead>
+              {session && <TableHead className="w-12">Избранное</TableHead>}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -57,6 +60,11 @@ const TramPage = async () => {
                 <TableCell className="font-semibold">
                   <Link href="/">{route.name}</Link>
                 </TableCell>
+                {session && (
+                  <TableCell className="items-center justify-center flex h-full">
+                    <Star className="h-5 w-5 text-center" />
+                  </TableCell>
+                )}
               </TableRow>
             ))}
           </TableBody>
