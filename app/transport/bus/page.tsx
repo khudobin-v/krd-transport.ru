@@ -24,7 +24,7 @@ const BusPage = async () => {
       <title>Автобусные маршруты</title>
       <div className="flex items-center gap-2">
         <img src="/transport/bus.svg" className="h-10 w-10" />
-        <h1 className="text-3xl text-green-600 font-bold">
+        <h1 className="text-3xl text-green-600 font-bold mb-2">
           Автобусные маршруты
         </h1>
       </div>

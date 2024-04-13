@@ -12,7 +12,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getRoutesByType } from "@/data/routes";
-import { Half1Icon } from "@radix-ui/react-icons";
 
 import Link from "next/link";
 
@@ -24,7 +23,9 @@ const TramPage = async () => {
       <title>Трамвайные маршруты</title>
       <div className="flex items-center gap-2">
         <img src="/transport/tram.svg" className="h-10 w-10" />
-        <h1 className="text-3xl text-red-600 font-bold">Трамвайные маршруты</h1>
+        <h1 className="text-3xl text-red-600 font-bold mb-2">
+          Трамвайные маршруты
+        </h1>
       </div>
 
       {routes?.length ? (
