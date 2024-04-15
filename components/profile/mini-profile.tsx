@@ -36,7 +36,7 @@ export const MiniProfile = () => {
       {status === "authenticated" && (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Avatar className="cursor-pointer">
+            <Avatar className="cursor-pointer h-8 w-8">
               <AvatarImage src={userImage!} />
               <AvatarFallback>
                 <CircleUser className="h-5 w-5" />
@@ -74,7 +74,7 @@ export const MiniProfile = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       )}
-      {status === "loading" && <Skeleton className="w-9 h-9 rounded-full" />}
+      {status === "loading" && <Skeleton className="w-8 h-8 rounded-full" />}
     </>
   );
 };
