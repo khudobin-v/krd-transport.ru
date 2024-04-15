@@ -80,11 +80,11 @@ export const Header = () => {
         </Sheet>
         <Link
           href="/"
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-2 sm:gap-3 group"
           draggable={false}
         >
-          <Logo className="h-6 w-6 stroke-primary group-hover:stroke-red-600 transition-all" />
-          <h2 className="text-primary font-bold select-none text-sm sm:text-base group-hover:text-red-600 transition-all">
+          <Logo className="h-5 w-5 sm:h-6 sm:w-6 stroke-primary group-hover:stroke-primary/80 transition-all" />
+          <h2 className="text-primary font-bold select-none text-sm sm:text-base group-hover:text-primary/80 transition-all">
             Краснодарский транспорт
           </h2>
         </Link>
