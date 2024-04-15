@@ -11,7 +11,7 @@ export const CurrentDate = () => {
     return () => clearInterval(interval);
   }, [date]);
   return (
-    <div className="bg-opacity border text-white px-4 py-2 rounded-lg flex flex-col gap-1 w-full sm:w-1/3">
+    <div className="bg-opacity border px-4 py-2 rounded-lg flex flex-col gap-1 w-full sm:w-1/3">
       {/* <h4 className="text-xl">Время сейчас:</h4> */}
       <h3 className="text-2xl font-semibold">{date.toLocaleTimeString()}</h3>
       <h3 className="text-xl font-semibold">
