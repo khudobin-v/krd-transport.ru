@@ -1,3 +1,4 @@
+import { CurrentDate } from "@/components/date/current-date";
 import Logo from "@/svg/logo";
 import Bus from "@/svg/transport/bus";
 import Tram from "@/svg/transport/tram";
@@ -15,6 +16,7 @@ const HomePage = () => {
             Краснодарский транспорт
           </h1>
         </div>
+        <CurrentDate />
         <div className="grid sm:grid-cols-3 grid-rows-3 gap-2">
           <Link
             href="/transport/tram"
