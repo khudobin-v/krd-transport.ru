@@ -19,3 +19,8 @@ export const RegisterSchema = z.object({
     .string()
     .min(8, { message: "Длина пароля должна быть не менее 8 символов" }),
 });
+
+export const ProfileSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+});
