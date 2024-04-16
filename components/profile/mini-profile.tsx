@@ -48,19 +48,18 @@ export const MiniProfile = () => {
 
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
-                <CircleUser className="h-3 w-3 mr-2" />
-                Профиль
-              </DropdownMenuItem>
-              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
-                <Star className="h-3 w-3 mr-2" />
-                Избранные маршруты
-              </DropdownMenuItem>
-
-              <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
-                <Settings className="h-3 w-3 mr-2" />
-                Настройки
-              </DropdownMenuItem>
+              <Link href="/profile">
+                <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
+                  <CircleUser className="h-3 w-3 mr-2" />
+                  Профиль
+                </DropdownMenuItem>
+              </Link>
+              <Link href="/profile#favorites">
+                <DropdownMenuItem className="focus-visible:text-primary cursor-pointer">
+                  <Star className="h-3 w-3 mr-2" />
+                  Избранные маршруты
+                </DropdownMenuItem>
+              </Link>
             </DropdownMenuGroup>
 
             <DropdownMenuSeparator />

@@ -1,6 +1,6 @@
 import { ProfileSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleUser, Save } from "lucide-react";
+import { CircleUser, Save, Star } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
@@ -37,7 +37,7 @@ export const Profile = () => {
           <CircleUser className="text-primary h-8 w-8" />
           <h3 className="text-3xl text-primary font-semibold">Ваш профиль</h3>
         </div>
-        <div className="grid grid-cols-7 gap-2 w-full sm:w-1/3 items-center">
+        <div className="flex gap-5 items-center">
           <Avatar className="h-24 w-24 col-span-2">
             <AvatarFallback>
               <CircleUser className="h-16 w-16" />
@@ -47,7 +47,7 @@ export const Profile = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(profileSubmit)}
-              className="col-span-4 sm:col-span-6"
+              className="w-full xl:w-1/4"
             >
               <div className="space-y-2">
                 <FormField
@@ -92,7 +92,15 @@ export const Profile = () => {
             </form>
           </Form>
         </div>
+        <div className="flex items-center gap-2 mt-4" id="favorites">
+          <Star className="text-primary h-8 w-8" />
+          <h3 className="text-3xl text-primary font-semibold">
+            Избранные маршруты
+          </h3>
+        </div>
+        <p className="text-foreground">Здесь пока ничего нет</p>
       </div>
     </>
   );
 };
+
