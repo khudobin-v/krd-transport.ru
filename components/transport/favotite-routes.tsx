@@ -21,6 +21,10 @@ interface Props {
 export const FavoriteRoutes = async ({ userId }: Props) => {
   const routes = await getFavoriteRoutesByUserId(userId);
 
+  if (!routes) {
+    return null; // or handle the case where routes is undefined
+  }
+
   // Fetch full route data using getFullRouteData
   const fullRoutes = await Promise.all(
     routes.map(async (route) => await getFullRouteData(route))
@@ -40,10 +44,10 @@ export const FavoriteRoutes = async ({ userId }: Props) => {
         <TableBody>
           {fullRoutes
             .sort((a, b) => {
-              if (a.type > b.type) return 1;
-              if (a.type < b.type) return -1;
+              if (a?.type ?? "" > (b?.type ?? "")) return 1;
+              if (a?.type ?? "" < (b?.type ?? "")) return -1;
 
-              return a.number - b.number;
+              return Number(a?.number ?? 0) - Number(b?.number ?? 0);
             })
             .map((route) => (
               <TableRow key={route?.id}>
