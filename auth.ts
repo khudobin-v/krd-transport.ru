@@ -4,7 +4,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth, { DefaultSession } from "next-auth";
 import { getUserById } from "./data/user";
 import { UserRole } from "@prisma/client";
-import { execSync } from "child_process";
+
 
 export const {
 	handlers: { GET, POST },
@@ -23,6 +23,7 @@ export const {
 		async session({ token, session }) {
 			if (token.role && session.user) {
 				session.user.role = token.role as UserRole;
+				session.user.id = token.sub;
 			}
 			return session;
 		},

@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@/auth";
+import { ToFavorite } from "@/components/to-favorite";
 import { RouteNumber } from "@/components/transport/route-number";
 import {
   Table,
@@ -19,7 +20,6 @@ import Link from "next/link";
 const TramPage = async () => {
   const routes = await getRoutesByType("tram");
   const session = await auth();
-
   return (
     <>
       <title>Трамвайные маршруты</title>
@@ -31,7 +31,7 @@ const TramPage = async () => {
       </div>
 
       {routes?.length ? (
-        <Table>
+        <Table className="mb-3">
           <TableCaption>Список всех трамвайных маршрутов</TableCaption>
           <TableHeader>
             <TableRow>
@@ -45,24 +45,16 @@ const TramPage = async () => {
               <TableRow key={route.id}>
                 <TableCell>
                   <Link href="/">
-                    <RouteNumber
-                      number={route.number}
-                      variant={
-                        route.type === "bus"
-                          ? "green"
-                          : route.type === "tram"
-                            ? "red"
-                            : "blue"
-                      }
-                    />
+                    <RouteNumber number={route.number} type={route.type} />
                   </Link>
                 </TableCell>
                 <TableCell className="font-semibold">
                   <Link href="/">{route.name}</Link>
                 </TableCell>
+
                 {session && (
                   <TableCell className="items-center justify-center flex h-full">
-                    <Star className="h-5 w-5 text-center" />
+                    <ToFavorite routeId={route.id} />
                   </TableCell>
                 )}
               </TableRow>

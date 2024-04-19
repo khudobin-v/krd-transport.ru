@@ -2,23 +2,23 @@
 
 interface RouteNumberProps {
   number: string;
-  variant: "red" | "blue" | "green";
+  type: "tram" | "trolleybus" | "bus";
 }
 
-export const RouteNumber = ({ number, variant }: RouteNumberProps) => {
+export const RouteNumber = ({ number, type }: RouteNumberProps) => {
   return (
     <>
-      {variant === "red" && (
+      {type === "tram" && (
         <div className="bg-red-600 rounded-[30%] px-3 py-3 w-6 h-6 flex items-center justify-center">
           <p className="text-white font-semibold text-sm">{number}</p>
         </div>
       )}
-      {variant === "blue" && (
+      {type === "trolleybus" && (
         <div className="bg-blue-600 rounded-[30%] px-3 py-3 w-6 h-6 flex items-center justify-center">
           <p className="text-white font-semibold text-sm">{number}</p>
         </div>
       )}
-      {variant === "green" && (
+      {type === "bus" && (
         <div className="bg-green-600 rounded-[30%] px-3 py-3 w-6 h-6 flex items-center justify-center">
           <p className="text-white font-semibold text-sm">{number}</p>
         </div>

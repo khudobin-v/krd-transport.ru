@@ -1,3 +1,5 @@
+"use client";
+
 import { ProfileSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleUser, Save, Star } from "lucide-react";
@@ -15,8 +17,11 @@ import {
 import { Input } from "../ui/input";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
+import { useState } from "react";
+import { FavoriteRoutes } from "../transport/favotite-routes";
 
 export const Profile = () => {
+  const [favoriteRoutes, setFavoriteRoutes] = useState(null);
   const session = useSession();
   const form = useForm({
     resolver: zodResolver(ProfileSchema),
@@ -35,7 +40,9 @@ export const Profile = () => {
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <CircleUser className="text-primary h-8 w-8" />
-          <h3 className="text-3xl text-primary font-semibold">Ваш профиль</h3>
+          <div className="flex gap-1 items-center">
+            <h3 className="text-3xl text-primary font-semibold">Ваш профиль</h3>
+          </div>
         </div>
         <div className="flex gap-5 items-center">
           <Avatar className="h-24 w-24 col-span-2">
@@ -98,9 +105,7 @@ export const Profile = () => {
             Избранные маршруты
           </h3>
         </div>
-        <p className="text-foreground">Здесь пока ничего нет</p>
       </div>
     </>
   );
 };
-

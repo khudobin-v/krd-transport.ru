@@ -1,13 +1,16 @@
-"use client"
+"use server";
 
+import { auth } from "@/auth";
 import { Profile } from "@/components/profile/profile";
-import { useProfile } from "@/hooks/useProfile";
+import { FavoriteRoutes } from "@/components/transport/favotite-routes";
 
-const ProfilePage = () => {
-  const { userRole } = useProfile();
+const ProfilePage = async () => {
+  const session = await auth();
+
   return (
     <>
       <Profile />
+      <FavoriteRoutes userId={session?.user.id!} />
     </>
   );
 };

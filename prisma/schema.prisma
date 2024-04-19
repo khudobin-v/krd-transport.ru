@@ -14,15 +14,15 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name       String?
-  email         String?   @unique
+  id            String      @id @default(cuid())
+  name          String?
+  email         String?     @unique
   password      String?
-  role  UserRole @default(user)
+  role          UserRole    @default(user)
   emailVerified DateTime?
   image         String?
   accounts      Account[]
-   routes        UserRoute[]
+  routes        UserRoute[]
 }
 
 enum UserRole {
@@ -49,14 +49,13 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-
 model Route {
-  id String @id @default(cuid())
-  type RouteType 
+  id     String      @id @default(cuid())
+  type   RouteType
   number String
-  name String
-  href String
-  users   UserRoute[] 
+  name   String
+  href   String
+  users  UserRoute[]
 }
 
 enum RouteType {
