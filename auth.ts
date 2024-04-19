@@ -23,7 +23,7 @@ export const {
 		async session({ token, session }) {
 			if (token.role && session.user) {
 				session.user.role = token.role as UserRole;
-				session.user.id = token.sub;
+				session.user.id = token.sub!;
 			}
 			return session;
 		},
