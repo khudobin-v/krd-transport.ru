@@ -13,7 +13,6 @@ import { useToast } from "./ui/use-toast";
 import { useEffect, useState } from "react";
 
 interface Props {
-  userId: string;
   routeId: string;
 }
 
