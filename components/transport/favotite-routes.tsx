@@ -1,6 +1,6 @@
 "use server";
 
-import { getFavoriteRoutesByUserId, getRoutesById } from "@/data/routes"; // Assuming data fetching functions are defined here
+import { getFavoriteRoutesByUserId, getRoutesById } from "@/data/routes"; 
 import {
   Table,
   TableBody,
@@ -23,6 +23,12 @@ export const FavoriteRoutes = async ({ userId }: Props) => {
 
   if (!routes) {
     return null; // or handle the case where routes is undefined
+  }
+
+  const getFavoriteRoutes = async () => {
+    return await Promise.all(
+      getFavoriteRoutesByUserId(userId).map()
+    )
   }
 
   // Fetch full route data using getFullRouteData
